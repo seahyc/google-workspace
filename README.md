@@ -9,6 +9,18 @@ Slides, Calendar, and Forms.
 npx skills add seahyc/google-workspace
 ```
 
+## Supported Operations By Service
+
+| Service | Supported operations |
+| --- | --- |
+| Gmail | Search messages, read messages and threads, read attachments, create drafts and reply drafts, inspect filters, manage labels, label messages |
+| Drive | Search files, list folders, read file content, inspect permissions and links, create files and folders, copy, move, export, inspect revisions, trash or delete files |
+| Docs | Read and edit documents, find and replace, insert tables/images/lists/breaks/footnotes, update styles, inspect structure, manage comments, export to PDF |
+| Sheets | Read and write values, manage tabs, format ranges, sort, validate, manage conditional formatting, freeze, merge, resize, manage named ranges/filter views/protected ranges/comments, inspect and update rich text cells with notes and hyperlinks |
+| Slides | Create presentations, inspect presentations and pages, fetch thumbnails, run structured updates, manage comments |
+| Calendar | List calendars, read events, create events, modify events, delete events |
+| Forms | Create forms, inspect forms, list responses, read individual responses, update publish settings |
+
 ## What This Skill Does
 
 This skill helps an agent choose the right Google Workspace tool and use it
