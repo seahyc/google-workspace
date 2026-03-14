@@ -3,6 +3,12 @@
 Portable skill source for Google Workspace workflows across Gmail, Drive, Docs,
 Sheets, Slides, Calendar, and Forms.
 
+## Quick Start
+
+```bash
+npx skills add seahyc/google-workspace
+```
+
 ## What it includes
 
 - `SKILL.md` with usage guidance for agents
@@ -20,10 +26,10 @@ directories containing symlinks to this folder.
 ## Publish
 
 To make the skill installable through the Skills CLI, push this folder as a Git
-repository and install it with:
+repository. The install command is:
 
 ```bash
-npx skills add <owner>/<repo> -l
+npx skills add <owner>/<repo>
 ```
 
 For the skill to show up in `npx skills find`, it needs to be distributed from a
