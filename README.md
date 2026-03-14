@@ -208,22 +208,17 @@ non-Google productivity suite.
 - [scripts/workspace_mcp.py](./scripts/workspace_mcp.py): helper CLI for
   cataloging tools and building or inspecting structured Google Sheets payloads
 
-## Local Layout
+## Install And Use
 
-Codex discovers user skills from `~/.agents/skills`.
-Claude Code discovers user skills from `~/.claude/skills`.
-
-This repo is intended to be the source of truth, with those discovery
-directories containing symlinks to this folder.
-
-## Publish
-
-To make the skill installable through the Skills CLI, push this folder as a Git
-repository. The install command is:
+1. Install the skill:
 
 ```bash
-npx skills add <owner>/<repo>
+npx skills add seahyc/google-workspace
 ```
 
-For the skill to show up in `npx skills find`, it needs to be distributed from a
-public repo and accumulate installs through the Skills ecosystem.
+2. Install and configure the Google Workspace server:
+- https://github.com/seahyc/hardened-google-workspace-mcp
+
+3. Complete the Google OAuth browser flow on first use.
+
+After that, your agent can use the Google Workspace tools through this skill.
