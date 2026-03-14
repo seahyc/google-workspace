@@ -5,9 +5,16 @@ Slides, Calendar, and Forms.
 
 ## Quick Start
 
+Install the skill for all supported local agents:
+
 ```bash
-npx skills add seahyc/google-workspace
+npx skills add seahyc/google-workspace -g -y --agent '*'
 ```
+
+Then install and configure the Google Workspace server:
+- https://github.com/seahyc/hardened-google-workspace-mcp
+
+On first use, complete the browser OAuth flow once.
 
 ## Supported Operations By Service
 
@@ -122,8 +129,16 @@ Server repo:
 
 ### 1. Install the skill
 
+Recommended:
+
 ```bash
-npx skills add seahyc/google-workspace
+npx skills add seahyc/google-workspace -g -y --agent '*'
+```
+
+If you want to target specific agents explicitly:
+
+```bash
+npx skills add seahyc/google-workspace -g -y --agent claude-code codex
 ```
 
 ### 2. Install and configure the Google Workspace server
@@ -208,17 +223,38 @@ non-Google productivity suite.
 - [scripts/workspace_mcp.py](./scripts/workspace_mcp.py): helper CLI for
   cataloging tools and building or inspecting structured Google Sheets payloads
 
-## Install And Use
+## Troubleshooting And Manual Install
 
-1. Install the skill:
+### If `npx skills add` is enough
+
+You do not need to create any symlinks manually. The Skills CLI should install
+the skill into the correct agent discovery paths.
+
+### If you want to install manually
+
+Typical user skill discovery paths:
+- Codex: `~/.agents/skills`
+- Claude Code: `~/.claude/skills`
+
+Clone the repo somewhere permanent:
 
 ```bash
-npx skills add seahyc/google-workspace
+git clone https://github.com/seahyc/google-workspace.git ~/Code/skills/google-workspace
 ```
 
-2. Install and configure the Google Workspace server:
-- https://github.com/seahyc/hardened-google-workspace-mcp
+Then create symlinks:
 
-3. Complete the Google OAuth browser flow on first use.
+```bash
+mkdir -p ~/.agents/skills ~/.claude/skills
+ln -s ~/Code/skills/google-workspace ~/.agents/skills/google-workspace
+ln -s ../../.agents/skills/google-workspace ~/.claude/skills/google-workspace
+```
 
-After that, your agent can use the Google Workspace tools through this skill.
+### If the skill installs but does not work
+
+Check these in order:
+- the Google Workspace server is installed locally
+- the server is configured with Google OAuth credentials
+- the server entry exists in your agent config
+- you completed the first browser auth flow successfully
+- your agent session has reloaded its skill list after installation
